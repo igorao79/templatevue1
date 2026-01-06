@@ -5,18 +5,16 @@
     elevation="2"
     app
     height="70"
+    width="100%"
     class="d-flex align-center header-sticky"
     :class="{ 'header-hidden': isHidden }"
     :style="{
       transform: isHidden ? 'translateY(-100%)' : 'translateY(0)',
-      transition: 'transform 0.3s ease-in-out'
+      transition: 'transform 0.3s ease-in-out',
+      maxWidth: '100vw',
+      overflow: 'hidden'
     }"
   >
-    <v-app-bar-nav-icon
-      @click="drawer = !drawer"
-      class="d-md-none"
-    ></v-app-bar-nav-icon>
-
     <v-toolbar-title class="text-h5 font-weight-bold section-title">
       <div class="logo-title-container">
         <img src="/images/logo.webp" alt="cofifi" class="header-logo">
@@ -25,6 +23,11 @@
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
+
+    <v-app-bar-nav-icon
+      @click="drawer = !drawer"
+      class="d-md-none"
+    ></v-app-bar-nav-icon>
 
     <!-- Элементы навигации слева от spacer -->
     <div class="nav-items d-none d-md-flex">
@@ -51,12 +54,13 @@
     </div>
   </v-app-bar>
 
-  <!-- Мобильное меню -->
-  <v-navigation-drawer
-    v-model="drawer"
-    temporary
-    app
-  >
+      <!-- Мобильное меню -->
+      <v-navigation-drawer
+        v-model="drawer"
+        temporary
+        app
+        location="right"
+      >
     <v-list>
       <v-list-item @click="drawer = false">
         <router-link to="/" class="text-decoration-none">

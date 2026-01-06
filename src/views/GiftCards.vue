@@ -72,6 +72,7 @@
                           color="info"
                           size="small"
                           class="other-text"
+                          @click="openCertificateModal(card)"
                         >
                           Выбрать
                         </v-btn>
@@ -96,11 +97,49 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <!-- Модалка с сертификатом -->
+    <v-dialog
+      v-model="showCertificateModal"
+      max-width="500px"
+    >
+      <v-card class="text-center pa-6">
+        <v-card-title class="text-h4 section-title mb-4">
+          Спасибо за покупку!
+        </v-card-title>
+
+        <v-card-text class="text-h6 mb-6 other-text certificate-main-text">
+          Вот ваш сертификат на {{ selectedCard?.price }} ₽
+        </v-card-text>
+
+        <div class="d-flex justify-center mb-6">
+          <canvas
+            ref="qrCanvas"
+            class="qr-code"
+          ></canvas>
+        </div>
+
+        <v-card-text class="text-body-2 mb-4 other-text certificate-instruction-text">
+          Отсканируйте QR-код для применения подарочной карты
+        </v-card-text>
+
+        <v-card-actions class="justify-center">
+          <v-btn
+            color="primary"
+            @click="closeCertificateModal"
+            class="certificate-close-btn"
+          >
+            Закрыть
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import QRCode from 'qrcode'
 
 interface GiftCard {
   id: number
@@ -143,6 +182,48 @@ const giftCards = ref<GiftCard[]>([
     image: '/images/cards/5000.webp'
   }
 ])
+
+// Модалка для сертификата
+const showCertificateModal = ref(false)
+const selectedCard = ref<GiftCard | null>(null)
+const qrCanvas = ref<HTMLCanvasElement | null>(null)
+
+// Генерация QR кода
+const generateQR = async () => {
+  if (!qrCanvas.value) return
+
+  const qrData = 'Подарочная карта применена!'
+
+  try {
+    await QRCode.toCanvas(qrCanvas.value, qrData, {
+      width: 200,
+      margin: 2,
+      color: {
+        dark: '#00887A',
+        light: '#FFFFFF'
+      }
+    })
+  } catch (error) {
+    console.error('Ошибка генерации QR кода:', error)
+  }
+}
+
+// Открытие модалки с сертификатом
+const openCertificateModal = (card: GiftCard) => {
+  selectedCard.value = card
+  showCertificateModal.value = true
+
+  // Генерируем QR код через небольшую задержку
+  setTimeout(() => {
+    generateQR()
+  }, 100)
+}
+
+// Закрытие модалки
+const closeCertificateModal = () => {
+  showCertificateModal.value = false
+  selectedCard.value = null
+}
 </script>
 
 <style scoped>
@@ -157,5 +238,26 @@ const giftCards = ref<GiftCard[]>([
 
 .gift-card:hover {
   transform: translateY(-5px);
+}
+
+.qr-code {
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+}
+
+.certificate-main-text {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+}
+
+.certificate-instruction-text {
+  font-size: 1.4rem !important;
+}
+
+.certificate-close-btn {
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
 }
 </style>

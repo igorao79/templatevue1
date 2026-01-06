@@ -82,27 +82,10 @@ body {
 /* Featured секция */
 .featured-section {
   background-color: var(--accent-color);
+  padding: 0 2rem;
 }
 
-.featured-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  background-color: var(--surface-color) !important;
-}
-
-.featured-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
-}
-
-.promo-card {
-  transition: transform 0.3s ease;
-  background-color: var(--surface-color) !important;
-}
-
-.promo-card:hover {
-  transform: translateY(-4px);
-}
+/* Карточки теперь стилизуются в компоненте Hero.vue */
 
 /* Mobile-first адаптивность */
 @media (max-width: 599px) {
@@ -115,11 +98,11 @@ body {
   }
 
   .menu-item-card .v-card__title {
-    font-size: 1.1rem !important;
+    font-size: 1.5rem !important;
   }
 
   .menu-item-card .v-card__text {
-    font-size: 0.875rem !important;
+    font-size: 1.4rem !important;
   }
 }
 
@@ -163,6 +146,13 @@ h1.main-title {
   font-size: 1.5rem !important;
 }
 
+/* Минимальный размер шрифта 1.4rem для всех Vuetify типографических классов */
+.v-application .text-body-2,
+.v-application .text-caption,
+.v-application .text-overline {
+  font-size: 1.4rem !important;
+}
+
 /* Все заголовки используют ZagolovkiFont */
 .v-application h2,
 .v-application h3,
@@ -190,6 +180,11 @@ html {
   }
 
   .promo-card .v-card__title {
-    font-size: 1.25rem !important;
+    font-size: 1.5rem !important;
   }
+}
+
+/* Обводка для всех h1 элементов */
+h1 {
+  text-shadow: 2px 2px 0px #00887A, -2px -2px 0px #00887A, 2px -2px 0px #00887A, -2px 2px 0px #00887A;
 }

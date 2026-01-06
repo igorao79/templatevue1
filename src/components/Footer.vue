@@ -84,7 +84,7 @@
 
       <v-row>
         <v-col class="text-center">
-          <p class="text-body-2 other-text">
+          <p class="text-body-2 other-text copyright-text">
             © 2025 cofifi. Все права защищены.
           </p>
         </v-col>
@@ -124,6 +124,11 @@
   font-size: inherit;
   font-weight: inherit;
   color: inherit;
+}
+
+.copyright-text {
+  font-size: 1.5rem !important;
+  margin: 0;
 }
 
 /* Используем Vuetify spacing классы вместо gap */
