@@ -126,7 +126,7 @@ const giftCards = ref<GiftCard[]>([
 
 <style scoped>
 .gift-cards-section {
-  background-color: #fff3e0;
+  background-color: var(--accent-color);
 }
 
 .gift-card {

@@ -126,28 +126,28 @@ const giftCards = ref<GiftCard[]>([
     name: 'Карта на 500 ₽',
     description: 'Идеальный вариант для небольшой приятности',
     price: 500,
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400'
+    image: '/images/cards/500.webp'
   },
   {
     id: 2,
     name: 'Карта на 1000 ₽',
     description: 'Отличный выбор для любителей кофе',
     price: 1000,
-    image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400'
+    image: '/images/cards/1000.webp'
   },
   {
     id: 3,
-    name: 'Карта на 2000 ₽',
+    name: 'Карта на 5000 ₽',
     description: 'Премиум вариант для особых случаев',
-    price: 2000,
-    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400'
+    price: 5000,
+    image: '/images/cards/5000.webp'
   }
 ])
 </script>
 
 <style scoped>
 .gift-cards-section {
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
 }
 
 .gift-card {

@@ -52,12 +52,12 @@
     fluid
     class="featured-section py-16"
   >
-    <v-row>
+    <v-row class="featured-row">
       <!-- Caramel Protein -->
       <v-col
         cols="12"
         md="6"
-        class="pa-4"
+        class="pa-4 d-flex"
       >
         <Motion
           :initial="{ opacity: 0, x: -50 }"
@@ -99,7 +99,7 @@
       <v-col
         cols="12"
         md="6"
-        class="pa-4"
+        class="pa-4 d-flex"
       >
         <Motion
           :initial="{ opacity: 0, x: 50 }"
@@ -138,13 +138,13 @@
       </v-col>
     </v-row>
 
-    <v-row class="mt-8">
-      <!-- Free Coffee -->
-      <v-col
-        cols="12"
-        md="4"
-        class="pa-4"
-      >
+        <v-row class="mt-8 promo-row">
+          <!-- Free Coffee -->
+          <v-col
+            cols="12"
+            md="4"
+            class="pa-4 d-flex"
+          >
         <Motion
           :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0 }"
@@ -175,12 +175,12 @@
         </Motion>
       </v-col>
 
-      <!-- Free Refills -->
-      <v-col
-        cols="12"
-        md="4"
-        class="pa-4"
-      >
+          <!-- Free Refills -->
+          <v-col
+            cols="12"
+            md="4"
+            class="pa-4 d-flex"
+          >
         <Motion
           :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0 }"
@@ -214,12 +214,12 @@
         </Motion>
       </v-col>
 
-      <!-- Nondairy Choices -->
-      <v-col
-        cols="12"
-        md="4"
-        class="pa-4"
-      >
+          <!-- Nondairy Choices -->
+          <v-col
+            cols="12"
+            md="4"
+            class="pa-4 d-flex"
+          >
         <Motion
           :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0 }"
@@ -295,5 +295,14 @@ const scrollToSection = (sectionId: string) => {
 .hero-main {
   position: relative !important;
   z-index: 1 !important;
+}
+
+/* Ряды с flex колонками */
+
+.featured-card,
+.promo-card {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important; /* Растягивается на всю высоту колонки */
 }
 </style>

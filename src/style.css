@@ -19,6 +19,10 @@
   font-style: normal;
 }
 
+html {
+  background-color: var(--primary-color);
+}
+
 :root {
   font-family: 'OllotherFont', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

@@ -17,8 +17,11 @@
       class="d-md-none"
     ></v-app-bar-nav-icon>
 
-    <v-toolbar-title class="text-h5 font-weight-bold">
-      ☕ Кофейня
+    <v-toolbar-title class="text-h5 font-weight-bold section-title">
+      <div class="logo-title-container">
+        <img src="/images/logo.webp" alt="cofifi" class="header-logo">
+        <span class="brand-text">cofifi</span>
+      </div>
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
@@ -26,22 +29,22 @@
     <!-- Элементы навигации слева от spacer -->
     <div class="nav-items d-none d-md-flex">
       <router-link to="/" class="text-decoration-none nav-link">
-        <v-btn text>
+        <v-btn text class="nav-btn" :class="{ active: $route.path === '/' }">
           Главная
         </v-btn>
       </router-link>
       <router-link to="/menu" class="text-decoration-none nav-link">
-        <v-btn text>
+        <v-btn text class="nav-btn" :class="{ active: $route.path === '/menu' }">
           Меню
         </v-btn>
       </router-link>
       <router-link to="/gift-cards" class="text-decoration-none nav-link">
-        <v-btn text>
+        <v-btn text class="nav-btn" :class="{ active: $route.path === '/gift-cards' }">
           Подарочные карты
         </v-btn>
       </router-link>
-      <router-link to="/about" class="text-decoration-none nav-link">
-        <v-btn text>
+      <router-link to="/about" class="text-decoration-none nav-link last-nav-link">
+        <v-btn text class="nav-btn" :class="{ active: $route.path === '/about' }">
           О нас
         </v-btn>
       </router-link>
@@ -155,12 +158,59 @@ onUnmounted(() => {
   align-items: center;
 }
 
+.last-nav-link {
+  margin-right: 2rem;
+}
+
+.logo-title-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  vertical-align: middle;
+}
+
+.header-logo {
+  height: 48px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
 .v-btn {
   color: white !important;
+  font-size: 1.5rem !important;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.v-btn::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--info-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
 .v-btn:hover {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: var(--info-color) !important;
+}
+
+.v-btn:hover::before,
+.v-btn.active::before {
+  width: 100%;
+}
+
+.v-btn.active {
+  color: var(--info-color) !important;
 }
 
 /* Мобильные стили */
@@ -173,6 +223,5 @@ onUnmounted(() => {
 /* Добавляем отступ для контента, чтобы он не скрывался под fixed header */
 :global(body) {
   padding-top: 70px;
-  background-color: var(--primary-color);
 }
 </style>
