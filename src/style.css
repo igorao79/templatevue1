@@ -1,0 +1,191 @@
+@font-face {
+  font-family: 'H1Font';
+  src: url('/fonts/h1.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ZagolovkiFont';
+  src: url('/fonts/zagolovki.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OllotherFont';
+  src: url('/fonts/ollother.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  font-family: 'OllotherFont', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #213547;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Цветовая палитра кофейни */
+  --primary-color: #00887A;      /* Основной зеленый - много */
+  --secondary-color: #FFCCBC;    /* Розовато-оранжевый - чуть меньше */
+  --surface-color: #FFFFFF;      /* Белый - чуть меньше */
+  --accent-color: #D3E3FC;       /* Голубой - чуть меньше */
+  --info-color: #77A6F7;         /* Синий - больше всего */
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Hero секция */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.hero-main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Featured секция */
+.featured-section {
+  background-color: var(--accent-color);
+}
+
+.featured-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  background-color: var(--surface-color) !important;
+}
+
+.featured-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.promo-card {
+  transition: transform 0.3s ease;
+  background-color: var(--surface-color) !important;
+}
+
+.promo-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Mobile-first адаптивность */
+@media (max-width: 599px) {
+  .hero-main {
+    padding: 40px 0;
+  }
+
+  .hero-main .text-h2 {
+    font-size: 2rem !important;
+  }
+
+  .menu-item-card .v-card__title {
+    font-size: 1.1rem !important;
+  }
+
+  .menu-item-card .v-card__text {
+    font-size: 0.875rem !important;
+  }
+}
+
+
+
+
+
+
+/* Анимации для карточек */
+.menu-item-card,
+.gift-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item-card:hover,
+.gift-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Кастомные шрифты */
+.section-title {
+  font-family: 'ZagolovkiFont', sans-serif !important;
+}
+
+.other-text {
+  font-family: 'OllotherFont', sans-serif !important;
+}
+
+h1.main-title {
+  font-family: 'H1Font', sans-serif !important;
+}
+
+/* Применяем OllotherFont ко всем текстовым элементам по умолчанию */
+.v-application {
+  font-family: 'OllotherFont', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
+  font-size: 1.5rem !important;
+}
+
+.v-application .v-card-text {
+  font-size: 1.5rem !important;
+}
+
+/* Все заголовки используют ZagolovkiFont */
+.v-application h2,
+.v-application h3,
+.v-application h4,
+.v-application h5,
+.v-application h6,
+.v-card-title {
+  font-family: 'ZagolovkiFont', sans-serif !important;
+}
+
+/* Плавная прокрутка */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Additional sections styling */
+.additional-sections {
+  margin-top: 0;
+}
+
+/* Featured cards responsive adjustments */
+@media (max-width: 959px) {
+  .featured-card .v-card__title {
+    font-size: 1.5rem !important;
+  }
+
+  .promo-card .v-card__title {
+    font-size: 1.25rem !important;
+  }
+}

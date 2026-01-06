@@ -1,0 +1,140 @@
+<template>
+  <v-container
+    id="gift-cards"
+    class="gift-cards-section py-16"
+    fluid
+  >
+    <v-row justify="center">
+      <v-col
+        cols="12"
+        md="10"
+        lg="8"
+      >
+        <v-card
+          class="pa-8 text-center"
+          elevation="4"
+        >
+          <v-card-title class="text-h3 font-weight-bold mb-8">
+            Подарочные карты
+          </v-card-title>
+
+          <v-card-text class="text-h6 mb-8">
+            Подарите незабываемые моменты! Наши подарочные карты идеально подойдут
+            для любого праздника или просто чтобы порадовать близких.
+          </v-card-text>
+
+          <v-row>
+            <v-col
+              v-for="(card, index) in giftCards"
+              :key="card.id"
+              cols="12"
+              sm="6"
+              md="4"
+            >
+              <Motion
+                :initial="{ opacity: 0, x: -30 }"
+                :enter="{ opacity: 1, x: 0 }"
+                :transition="{
+                  duration: 600,
+                  delay: index * 150,
+                  ease: 'easeOut'
+                }"
+              >
+                <v-card
+                  class="gift-card"
+                  elevation="3"
+                  hover
+                >
+                  <v-img
+                    :src="card.image"
+                    height="200"
+                    cover
+                  ></v-img>
+                  <v-card-title class="text-h6 font-weight-bold">
+                    {{ card.name }}
+                  </v-card-title>
+                  <v-card-text>
+                    <p class="text-body-2 mb-4">{{ card.description }}</p>
+                    <div class="d-flex justify-space-between align-center">
+                      <span class="text-h5 font-weight-bold primary--text">
+                        {{ card.price }} ₽
+                      </span>
+                      <v-btn
+                        color="primary"
+                        size="small"
+                      >
+                        Выбрать
+                      </v-btn>
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </Motion>
+            </v-col>
+          </v-row>
+
+          <v-card-actions class="justify-center mt-8">
+            <v-btn
+              size="large"
+              color="secondary"
+              variant="outlined"
+              class="px-8"
+            >
+              Узнать больше о подарочных картах
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+interface GiftCard {
+  id: number
+  name: string
+  description: string
+  price: number
+  image: string
+}
+
+const giftCards = ref<GiftCard[]>([
+  {
+    id: 1,
+    name: 'Карта на 500 ₽',
+    description: 'Идеальный вариант для небольшой приятности',
+    price: 500,
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400'
+  },
+  {
+    id: 2,
+    name: 'Карта на 1000 ₽',
+    description: 'Отличный выбор для любителей кофе',
+    price: 1000,
+    image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400'
+  },
+  {
+    id: 3,
+    name: 'Карта на 2000 ₽',
+    description: 'Премиум вариант для особых случаев',
+    price: 2000,
+    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400'
+  }
+])
+</script>
+
+<style scoped>
+.gift-cards-section {
+  background-color: #fff3e0;
+}
+
+.gift-card {
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.gift-card:hover {
+  transform: translateY(-5px);
+}
+</style>
