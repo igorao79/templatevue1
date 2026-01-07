@@ -16,10 +16,12 @@
     }"
   >
     <v-toolbar-title class="text-h5 font-weight-bold section-title">
-      <div class="logo-title-container">
-        <img src="/images/logo.webp" alt="cofifi" class="header-logo">
-        <span class="brand-text">cofifi</span>
-      </div>
+      <router-link to="/" class="text-decoration-none">
+        <div class="logo-title-container">
+          <img src="/images/logo.webp" alt="cofifi" class="header-logo">
+          <span class="brand-text">cofifi</span>
+        </div>
+      </router-link>
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
@@ -182,7 +184,12 @@ onUnmounted(() => {
 .brand-text {
   font-size: inherit;
   font-weight: inherit;
-  color: inherit;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.logo-title-container:hover .brand-text {
+  color: var(--info-color) !important;
 }
 
 .v-btn {

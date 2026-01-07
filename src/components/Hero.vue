@@ -70,9 +70,10 @@
             hover
           >
             <v-img
-              src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=600"
+              src="/images/menu/caramelproteinlatte.webp"
               height="300"
               cover
+              position="center 30%"
             ></v-img>
             <v-card-title class="text-h4 font-weight-bold section-title">
               Карамельный протеин здесь
@@ -114,9 +115,10 @@
             hover
           >
             <v-img
-              src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600"
+              src="/images/menu/fistashkkortado.webp"
               height="300"
               cover
+              position="center 30%"
             ></v-img>
             <v-card-title class="text-h4 font-weight-bold section-title">
               Привет, фисташка
@@ -156,10 +158,9 @@
           :transition="{ duration: 500, delay: 300, ease: 'easeOut' }"
         >
           <v-card
-            class="promo-card h-100 text-center"
+            class="promo-card h-100 text-center free-coffee-card text-white"
             elevation="3"
-            color="primary"
-            dark
+            :style="{ backgroundColor: 'var(--primary-color) !important' }"
           >
             <v-card-title class="text-h6 font-weight-bold section-title">
               Но сначала бесплатный кофе
@@ -198,7 +199,7 @@
             elevation="3"
           >
             <v-img
-              src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400"
+              src="/images/menu/coffepacket.webp"
               height="200"
               cover
             ></v-img>
@@ -239,7 +240,7 @@
             elevation="3"
           >
             <v-img
-              src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400"
+              src="/images/menu/bezlaktoz.webp"
               height="200"
               cover
             ></v-img>
