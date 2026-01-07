@@ -10,3 +10,4 @@ import Hero from '../components/Hero.vue'
 
 <style scoped>
 </style>
+

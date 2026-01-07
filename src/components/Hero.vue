@@ -57,6 +57,7 @@
         sm="6"
         md="6"
         lg="6"
+        class="d-flex"
       >
         <Motion
           :initial="{ opacity: 0, x: -50 }"
@@ -76,7 +77,7 @@
             <v-card-title class="text-h4 font-weight-bold section-title">
               Карамельный протеин здесь
             </v-card-title>
-            <v-card-text class="text-body-1 other-text">
+            <v-card-text class="text-body-1 other-text card-content">
               Зарядись энергией с новым Карамельным Протеиновым Латте и Карамельным Протеиновым Матча.
               Ручная работа с молоком, обогащенным протеином - до 31 грамма протеина на гранде.
               Наслаждайся горячим или холодным с вариантами без сахара.
@@ -100,6 +101,7 @@
         sm="6"
         md="6"
         lg="6"
+        class="d-flex"
       >
         <Motion
           :initial="{ opacity: 0, x: 50 }"
@@ -119,7 +121,7 @@
             <v-card-title class="text-h4 font-weight-bold section-title">
               Привет, фисташка
             </v-card-title>
-            <v-card-text class="text-body-1 other-text">
+            <v-card-text class="text-body-1 other-text card-content">
               Любимый вкус вернулся с восхитительным новым Фисташковым Кортado,
               Фисташковым Кремовым Колд Брю и любимым Фисташковым Латте.
               Солоновато-сладкий комфорт в любое время дня.
@@ -146,6 +148,7 @@
         sm="4"
         md="4"
         lg="4"
+        class="d-flex"
       >
         <Motion
           :initial="{ opacity: 0, y: 30 }"
@@ -161,7 +164,7 @@
             <v-card-title class="text-h6 font-weight-bold section-title">
               Но сначала бесплатный кофе
             </v-card-title>
-            <v-card-text class="other-text">
+            <v-card-text class="other-text card-content">
               Бесплатный ручной напиток при покупке - твой в течение первой недели.
             </v-card-text>
             <v-card-actions class="justify-center">
@@ -183,6 +186,7 @@
         sm="4"
         md="4"
         lg="4"
+        class="d-flex"
       >
         <Motion
           :initial="{ opacity: 0, y: 30 }"
@@ -201,7 +205,7 @@
             <v-card-title class="text-h6 font-weight-bold mt-4 section-title">
               Занимай место. Получай бесплатные доливки.
             </v-card-title>
-            <v-card-text class="text-body-2 other-text">
+            <v-card-text class="text-body-2 other-text card-content">
               Когда ты остаешься насладиться любимым напитком в кафе,
               доливки горячего или холодного кофе или чая за наш счет.
             </v-card-text>
@@ -223,6 +227,7 @@
         sm="4"
         md="4"
         lg="4"
+        class="d-flex"
       >
         <Motion
           :initial="{ opacity: 0, y: 30 }"
@@ -241,7 +246,7 @@
             <v-card-title class="text-h6 font-weight-bold mt-4 section-title">
               Безлактозные варианты. Без доплаты.
             </v-card-title>
-            <v-card-text class="text-body-2 other-text">
+            <v-card-text class="text-body-2 other-text card-content">
               Попробуй свой любимый горячий или холодный напиток с безлактозным молоком.
               Выбирай овсяное, миндальное, кокосовое или соевое — без дополнительной платы.
             </v-card-text>
@@ -307,7 +312,11 @@ const scrollToSection = (sectionId: string) => {
 .promo-card {
   display: flex !important;
   flex-direction: column !important;
-  flex: 1 !important; /* Растягивается на всю высоту колонки */
+  width: 100% !important;
+}
+
+.card-content {
+  flex-grow: 1 !important;
 }
 
 /* Адаптивный текст заголовка */
